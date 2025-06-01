@@ -5,6 +5,20 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Chores from "./pages/Chores";
 import { useAuth } from "./AuthContext";
+import { useEffect } from "react";
+
+const HomeRedirect: React.FC = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard", { replace: true });
+    } else {
+      navigate("/login", { replace: true });
+    }
+  }, [user, navigate]);
+  return null;
+};
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user } = useAuth();
@@ -47,6 +61,7 @@ const App = () => {
     <Router>
       <AppNav />
       <Routes>
+        <Route path="/" element={<HomeRedirect />} />
         <Route
           path="/dashboard"
           element={
