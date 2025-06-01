@@ -82,15 +82,108 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Auth container for login/register forms */
+.auth-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  background: #2d323b;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  border: 1px solid #23272f;
+}
+
+.auth-container h2 {
+  margin-bottom: 1.5rem;
+  color: #2ec4b6;
+  font-weight: 700;
+}
+
+.auth-container label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #f4f4f4;
+}
+
+.auth-container input,
+.auth-container select {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1.2em;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #23272f;
+  color: #f4f4f4;
+  font-size: 1em;
+}
+
+.auth-container input:focus,
+.auth-container select:focus {
+  outline: 2px solid #2ec4b6;
+  border-color: #2ec4b6;
+}
+
+.auth-container button {
+  width: 100%;
+  background: linear-gradient(90deg, #2ec4b6 60%, #43aa8b 100%);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  padding: 0.7em 0;
+  border-radius: 8px;
+  margin-top: 0.5em;
+  transition: background 0.2s;
+}
+
+.auth-container button:hover {
+  background: linear-gradient(90deg, #43aa8b 60%, #2ec4b6 100%);
+}
+
+.auth-container a {
+  color: #2ec4b6;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.auth-container a:hover {
+  color: #43aa8b;
+}
+
+.auth-container .error-message {
+  margin-top: 1em;
+  color: #ff6b6b;
+  font-weight: 500;
+  text-align: center;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #f7f9fa;
   }
   a:hover {
-    color: #747bff;
+    color: #2ec4b6;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #e0f7fa;
+  }
+  .auth-container {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 24px 0 rgba(44,62,80,0.08);
+  }
+  .auth-container h2 {
+    color: #2ec4b6;
+  }
+  .auth-container label {
+    color: #213547;
+  }
+  .auth-container input,
+  .auth-container select {
+    background: #f7f9fa;
+    color: #213547;
+    border: 1px solid #b0bec5;
   }
 }

@@ -33,7 +33,7 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "2rem auto", padding: 24, border: "1px solid #ccc", borderRadius: 8 }}>
+    <div className="auth-container">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -51,13 +51,16 @@ const Register: React.FC = () => {
             <option value="parent">Parent</option>
           </select>
         </div>
-        <button type="submit" style={{ marginTop: 16 }} disabled={loading}>
+        <button type="submit" disabled={loading}>
           {loading ? "Registering..." : "Register"}
         </button>
       </form>
       {message && (
-        <div style={{ marginTop: 16, color: "red" }}>{message}</div>
+        <div className="error-message">{message}</div>
       )}
+      <div style={{ marginTop: 24, textAlign: "center" }}>
+        <a href="/login">Back to Login</a>
+      </div>
     </div>
   );
 };

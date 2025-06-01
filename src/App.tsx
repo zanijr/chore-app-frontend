@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link, Navigate, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, Navigate, useNavigate, useLocation } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
@@ -31,6 +31,12 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
 const AppNav: React.FC = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Hide AppNav on /login and /register
+  if (location.pathname === "/login" || location.pathname === "/register") {
+    return null;
+  }
 
   const handleLogout = async () => {
     await logout();

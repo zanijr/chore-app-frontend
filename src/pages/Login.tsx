@@ -33,7 +33,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "2rem auto", padding: 24, border: "1px solid #ccc", borderRadius: 8 }}>
+    <div className="auth-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -44,13 +44,17 @@ const Login: React.FC = () => {
           <label>Password:</label>
           <input name="password" type="password" value={form.password} onChange={handleChange} required />
         </div>
-        <button type="submit" style={{ marginTop: 16 }} disabled={loading}>
+        <button type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
       </form>
       {message && (
-        <div style={{ marginTop: 16, color: "red" }}>{message}</div>
+        <div className="error-message">{message}</div>
       )}
+      <div style={{ marginTop: 24, textAlign: "center" }}>
+        <span>Don't have an account? </span>
+        <a href="/register">Register</a>
+      </div>
     </div>
   );
 };
